@@ -1,0 +1,48 @@
+name: plantify
+description: A new Flutter project.
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.5 <4.0.0'
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+
+
+# The following section is specific to Flutter packages.
+flutter:
+
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/images/
+
+  # list giving the asset and other descriptors for the font. For
+  # example:
+  fonts:
+    - family: Avalon
+      fonts:
+        - asset: assets/fonts/Avalon_Bold_Italic.ttf
+        - asset: assets/fonts/Avalon_Bold.ttf
+        - asset: assets/fonts/Avalon_Italic.ttf
+        - asset: assets/fonts/Avalon_Plain.ttf
+        - asset: assets/fonts/Avalon_Regular.ttf
+        - asset: assets/fonts/Avalon.ttf
+          
+
+
+
+
