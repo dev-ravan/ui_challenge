@@ -1,6 +1,7 @@
 // ignore_for_file: unused_local_variable
 
 import 'package:flutter/material.dart';
+import 'package:plantify/screens/details.dart';
 import 'package:plantify/utils/text.dart';
 import 'package:plantify/utils/themes.dart';
 
@@ -62,7 +63,7 @@ class _HomeState extends State<Home> {
                           plantContainer(
                               plantImage: "assets/images/plant_1.png",
                               plantName: "Lucky Jade Plant",
-                              price: "\$12.99",
+                              price: "\$13.00",
                               variant: ""),
                           const SizedBox(
                             height: 25,
@@ -70,7 +71,7 @@ class _HomeState extends State<Home> {
                           plantContainer(
                               plantImage: "assets/images/plant_6.png",
                               plantName: "Snake Plant",
-                              price: "\$12.99",
+                              price: "\$14.99",
                               variant: ""),
                           const SizedBox(
                             height: 25,
@@ -78,7 +79,7 @@ class _HomeState extends State<Home> {
                           plantContainer(
                               plantImage: "assets/images/plant_3.png",
                               plantName: "Lucky Jade Plant",
-                              price: "\$12.99",
+                              price: "\$15.99",
                               variant: ""),
                         ]),
                         Column(
@@ -94,7 +95,7 @@ class _HomeState extends State<Home> {
                             plantContainer(
                                 plantImage: "assets/images/plant_4.png",
                                 plantName: "Small Plant",
-                                price: "\$12.99",
+                                price: "\$10.99",
                                 variant: "Super Greens"),
                             const SizedBox(
                               height: 25,
@@ -102,7 +103,7 @@ class _HomeState extends State<Home> {
                             plantContainer(
                                 plantImage: "assets/images/plant_5.png",
                                 plantName: "Lucky Jade Plant",
-                                price: "\$12.99",
+                                price: "\$9.99",
                                 variant: "Super Greens"),
                           ],
                         )
@@ -180,46 +181,58 @@ class _HomeState extends State<Home> {
       required String variant,
       required String plantImage,
       required String price}) {
-    return Container(
-      padding: const EdgeInsets.all(15),
-      height: MediaQuery.of(context).size.height / 3,
-      width: MediaQuery.of(context).size.width / 2.5,
-      decoration: BoxDecoration(
-          color: palette.white, borderRadius: BorderRadius.circular(20)),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            height: MediaQuery.of(context).size.height / 4.7,
-            color: palette.white,
-            child: Image.asset(
-              plantImage,
-              fit: BoxFit.cover,
+    return InkWell(
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => Details(
+                      plantImg: plantImage,
+                      plantName: plantName,
+                      price: price,
+                    )));
+      },
+      child: Container(
+        padding: const EdgeInsets.all(15),
+        height: MediaQuery.of(context).size.height / 3,
+        width: MediaQuery.of(context).size.width / 2.5,
+        decoration: BoxDecoration(
+            color: palette.white, borderRadius: BorderRadius.circular(20)),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              height: MediaQuery.of(context).size.height / 4.7,
+              color: palette.white,
+              child: Image.asset(
+                plantImage,
+                fit: BoxFit.cover,
+              ),
             ),
-          ),
-          MyTexts().subTitle12(text: plantName),
-          const SizedBox(
-            height: 5,
-          ),
-          MyTexts().subTitle11(text: variant),
-          const SizedBox(
-            height: 10,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              MyTexts().priceText(text: price),
-              CircleAvatar(
-                backgroundColor: palette.black,
-                radius: 11,
-                child: const Icon(
-                  Icons.favorite,
-                  size: 13,
-                ),
-              )
-            ],
-          )
-        ],
+            MyTexts().subTitle12(text: plantName),
+            const SizedBox(
+              height: 5,
+            ),
+            MyTexts().subTitle11(text: variant),
+            const SizedBox(
+              height: 10,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                MyTexts().priceText(text: price),
+                CircleAvatar(
+                  backgroundColor: palette.black,
+                  radius: 11,
+                  child: const Icon(
+                    Icons.favorite,
+                    size: 13,
+                  ),
+                )
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
